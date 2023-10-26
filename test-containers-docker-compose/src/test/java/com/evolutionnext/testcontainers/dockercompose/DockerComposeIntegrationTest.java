@@ -7,18 +7,25 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.Iterator;
 
 @Testcontainers
 public class DockerComposeIntegrationTest {
 
     private static final int REDIS_PORT = 6379;
+
     @Container
-    public static DockerComposeContainer environment =
-        new DockerComposeContainer(new File("test-containers-docker-compose/src/main/resources/docker-compose.yaml"))
+        public static DockerComposeContainer environment =
+        new DockerComposeContainer(new File(DockerComposeIntegrationTest.class.getClassLoader().getResource("docker-compose.yaml").getFile()))
             .withExposedService("redis", REDIS_PORT);
 
     @Test
-    void testDockerCompose() throws InterruptedException {
+    void testDockerCompose() throws InterruptedException, IOException {
         Integer redisPort = environment.getServicePort("redis", REDIS_PORT);
         String redisHost = environment.getServiceHost("redis", REDIS_PORT);
 
