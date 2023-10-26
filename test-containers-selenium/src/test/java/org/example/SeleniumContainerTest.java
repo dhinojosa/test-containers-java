@@ -39,8 +39,8 @@ class SeleniumContainerTest {
 
     @Container
     public BrowserWebDriverContainer chrome = new BrowserWebDriverContainer()
-        .withCapabilities(new ChromeOptions())
-        .withRecordingMode(VncRecordingMode.RECORD_ALL, new File("build"));
+        .withCapabilities(new ChromeOptions());
+//        .withRecordingMode(VncRecordingMode.RECORD_ALL, new File("build"));
 
     @Test
     void simplePlainSeleniumTest() {
