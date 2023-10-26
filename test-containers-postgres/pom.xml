@@ -1,6 +1,6 @@
 <project>
     <parent>
-        <groupId>com.xyzcorp</groupId>
+        <groupId>com.evolutionnext</groupId>
         <artifactId>test-containers-java</artifactId>
         <version>1.0</version>
     </parent>

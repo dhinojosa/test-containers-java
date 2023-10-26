@@ -1,6 +1,6 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.xyzcorp</groupId>
+    <groupId>com.evolutionnext</groupId>
     <artifactId>test-containers-java</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
@@ -16,6 +16,8 @@
         <module>test-containers-postgres</module>
         <module>test-containers-neo4j</module>
         <module>test-containers-generic</module>
+        <module>test-containers-docker-compose</module>
+        <module>test-containers-selenium</module>
     </modules>
     <build>
         <pluginManagement>
