@@ -33,4 +33,4 @@ jobs:
       with:
         token: ${{ secrets.TC_CLOUD_TOKEN }}
     - name: Build with Maven
-      run: mvn test
+      run: mvn package --file pom.xml
