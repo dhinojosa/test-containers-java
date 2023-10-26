@@ -15,6 +15,7 @@
         <module>test-containers-kafka</module>
         <module>test-containers-postgres</module>
         <module>test-containers-neo4j</module>
+        <module>test-containers-generic</module>
     </modules>
     <build>
         <pluginManagement>
