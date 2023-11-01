@@ -20,9 +20,13 @@ public class DockerComposeIntegrationTest {
     private static final int REDIS_PORT = 6379;
 
     @Container
-        public static DockerComposeContainer environment =
-        new DockerComposeContainer(new File(DockerComposeIntegrationTest.class.getClassLoader().getResource("docker-compose.yaml").getFile()))
+        public static DockerComposeContainer environment;
+
+    static {
+        File file = new File(DockerComposeIntegrationTest.class.getClassLoader().getResource("docker-compose.yaml").getFile());
+        environment = new DockerComposeContainer(file)
             .withExposedService("redis", REDIS_PORT);
+    }
 
     @Test
     void testDockerCompose() throws InterruptedException, IOException {

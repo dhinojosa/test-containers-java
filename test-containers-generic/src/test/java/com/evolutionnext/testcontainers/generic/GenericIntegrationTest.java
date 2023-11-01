@@ -12,12 +12,13 @@ import org.testcontainers.utility.DockerImageName;
 public class GenericIntegrationTest {
 
     @Container
-    public static GenericContainer<?> alpine = new GenericContainer<>(DockerImageName.parse("nginx:1.25.3"))
+    public static GenericContainer<?> nginx =
+        new GenericContainer<>(DockerImageName.parse("nginx:1.25.3"))
         .withExposedPorts(80);
 
     @Test
     void testGenericCalls() throws InterruptedException {
-        String url = String.format("http://localhost:%s", alpine.getFirstMappedPort());
+        String url = String.format("http://localhost:%s", nginx.getFirstMappedPort());
         System.out.println(url);
         String result = RestAssured.when().get(url).asString();
         Assertions.assertThat(result).contains("Thank you for using nginx.");
